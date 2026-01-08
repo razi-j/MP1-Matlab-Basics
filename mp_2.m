@@ -56,7 +56,7 @@ if isequal(size(A), size(B))
     disp('---------------------------------------------');
 else
     disp('ADDITION, SUBTRACTION, AND ELEMENT-WISE MULTIPLICATION')
-    disp('Addition, subtraction, and element-wise multiplication are not possible.');
+    fprintf('Addition, subtraction, and element-wise\nmultiplication are not possible.\n');
     disp('---------------------------------------------');
 end
 
@@ -78,7 +78,7 @@ if size(A,1) == size(A,2)
     disp(det(A));
     disp('---------------------------------------------');
 else
-    disp('Matrix A is not square. Determinant not defined.');
+    fprintf('Matrix A is not square.\nDeterminant not defined.\n');
     disp('---------------------------------------------');
 end
 
@@ -88,7 +88,7 @@ if size(B,1) == size(B,2)
     disp(det(B));
     disp('---------------------------------------------');
 else
-    disp('Matrix B is not square. Determinant not defined.');
+    fprintf('Matrix B is not square.\nDeterminant not defined.\n');
     disp('---------------------------------------------');
 end
 
@@ -111,7 +111,7 @@ if size(A,1) == size(A,2)
     disp('---------------------------------------------');
 else
     disp('EIGENVALUES AND EIGENVECTORS OF MATRIX A');
-    disp('Matrix A is not square. Eigenvalues and eigenvectors are not defined.');
+    fprintf('Matrix A is not square.\nEigenvalues and eigenvectors are not defined.\n');
     disp('---------------------------------------------');
 end
 
@@ -124,7 +124,7 @@ if size(B,1) == size(B,2)
     disp('---------------------------------------------');
 else
     disp('EIGENVALUES AND EIGENVECTORS OF MATRIX B');
-    disp('Matrix B is not square. Eigenvalues and eigenvectors are not defined.');
+    fprintf('Matrix B is not square.\nEigenvalues and eigenvectors are not defined.\n');
     disp('---------------------------------------------');
     
 end
