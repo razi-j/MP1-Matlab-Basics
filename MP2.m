@@ -1,3 +1,4 @@
+% --- clearing workspace and command window
 clc;
 clear;
 
@@ -9,7 +10,7 @@ rowA = -1;
 while rowA <= 0 || floor(rowA) ~= rowA
     rowA = input('Enter number of rows for Matrix A (positive integer): ');
     if rowA <= 0 || floor(rowA) ~= rowA
-        fprintf('Invalid input! Please enter a positive integer.\n');
+        fprintf('Invalid input.\nPlease enter a positive integer.\n');
     end
 end
 
@@ -175,6 +176,7 @@ end
 % --- 3d scatter plots for filled dots
 scatter3(xA(:), yA(:), zA(:), 50, 'b', 'filled');
 
+% --- customization of figure (title, axes, etc.)
 grid on;
 xlabel('Column Index');
 ylabel('Row Index');
