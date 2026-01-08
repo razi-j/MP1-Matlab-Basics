@@ -1,11 +1,14 @@
 clc;
 clear;
 
-% === USER INPUT === 
-disp('=== Advanced Matrix Calculator ===');
+% -------- matrix calculator --------
+fprintf('\n========= Advanced Matrix Calculator ========\n\n');
 
+% -------- matrix a input --------
 rowA = input('Enter number of rows for Matrix A: ');
 colA = input('Enter number of columns for Matrix A: ');
+
+fprintf('\nEnter the following elements for Matrix A:\n');
 
 A = zeros(rowA, colA);
 for i = 1:rowA
@@ -14,8 +17,11 @@ for i = 1:rowA
     end
 end
 
-rowB = input('Enter number of rows for Matrix B: ');
+% -------- matrix b input --------
+rowB = input('\nEnter number of rows for Matrix B: ');
 colB = input('Enter number of columns for Matrix B: ');
+
+fprintf('\nEnter the following elements for Matrix B:\n');
 
 B = zeros(rowB, colB);
 for i = 1:rowB
@@ -24,59 +30,104 @@ for i = 1:rowB
     end
 end
 
-disp('MATRIX A');
-disp(A);
-disp('MATRIX B');
-disp(B);
+fprintf('\n========= Matrix Calculator Results =========\n');
 
-% === MATRIX OPERATIONS ===
+% -------- display matrices --------
+disp('---------------------------------------------');
+fprintf('INITIAL MATRIX A\n');
+disp(A);
+
+fprintf('\nINITIAL MATRIX B\n');
+disp(B);
+disp('---------------------------------------------');
+
+% -------- addition, subtraction, element-wise multiplication --------
 if isequal(size(A), size(B))
-    disp('ADDITION');
+    disp('MATRIX ADDITION (A + B)');
     disp(A + B);
-    disp('SUBTRACTION');
+    disp('---------------------------------------------');
+
+    disp('MATRIX SUBTRACTION (A - B)');
     disp(A - B);
-    disp('ELEMENT-WISE MULTIPLICATION');
+    disp('---------------------------------------------');
+
+    disp('ELEMENT-WISE MULTIPLICATION (A .* B)');
     disp(A .* B);
+    disp('---------------------------------------------');
 else
-    disp('Not valid for addition, subtraction, or element-wise multiplication.');
+    disp('ADDITION, SUBTRACTION, AND ELEMENT-WISE MULTIPLICATION')
+    disp('Addition, subtraction, and element-wise multiplication are not possible.');
+    disp('---------------------------------------------');
 end
+
+% -------- matrix multiplication --------
+disp('MATRIX MULTIPLICATION (A * B)');
 
 if size(A,2) == size(B,1)
-    disp('MATRIX MULTIPLICATION');
     disp(A * B);
+    disp('---------------------------------------------');
 else
-    disp('Not valid for matrix multiplication.');
+    disp('Matrix multiplication is not possible.');
+    disp('---------------------------------------------');
 end
+
+% -------- determinant of a matrix --------
+disp('DETERMINANT OF MATRIX A');
 
 if size(A,1) == size(A,2)
-    disp('DETERMINANT OF MATRIX A');
     disp(det(A));
-    disp('DETERMINANT OF MATRIX B');
-    disp(det(B));
+    disp('---------------------------------------------');
 else
-    disp('Not valid for determinant calculation.');
+    disp('Matrix A is not square. Determinant not defined.');
+    disp('---------------------------------------------');
 end
 
-disp('TRANSPOSE OF MATRIX A');
-disp(A');
-disp('TRANSPOSE OF MATRIX B');
-disp(B');
-
-if size(A,1) == size (A,2)
-    [V, D] = eig(A);
-    disp('EIGENVALUES OF MATRIX A');
-    disp(diag(D));
-    disp('EIGENVECTORS MATRIX A');
-    disp(V);
-end
-
+disp('DETERMINANT OF MATRIX B');
 
 if size(B,1) == size(B,2)
-    [V, D] = eig(B);
-    disp('EIGENVALUES OF MATRIX B');
-    disp(diag(D));
-    disp('EIGENVECTORS MATRIX B');
-    disp(V);
+    disp(det(B));
+    disp('---------------------------------------------');
+else
+    disp('Matrix B is not square. Determinant not defined.');
+    disp('---------------------------------------------');
 end
 
-% === FORMATTED OUTPUT ===
+% -------- transpose of a matrix --------
+disp('TRANSPOSE OF MATRIX A');
+disp(A');
+disp('---------------------------------------------');
+
+disp('TRANSPOSE OF MATRIX B');
+disp(B');
+disp('---------------------------------------------');
+
+% -------- eigenvalues and eigenvectors --------
+if size(A,1) == size(A,2)
+    [VA, DA] = eig(A);
+    disp('EIGENVALUES OF MATRIX A');
+    disp(diag(DA));
+    disp('EIGENVECTORS OF MATRIX A');
+    disp(VA);
+    disp('---------------------------------------------');
+else
+    disp('EIGENVALUES AND EIGENVECTORS OF MATRIX A');
+    disp('Matrix A is not square. Eigenvalues and eigenvectors are not defined.');
+    disp('---------------------------------------------');
+end
+
+if size(B,1) == size(B,2)
+    [VB, DB] = eig(B);
+    disp('EIGENVALUES OF MATRIX B');
+    disp(diag(DB));
+    disp('EIGENVECTORS OF MATRIX B');
+    disp(VB);
+    disp('---------------------------------------------');
+else
+    disp('EIGENVALUES AND EIGENVECTORS OF MATRIX B');
+    disp('Matrix B is not square. Eigenvalues and eigenvectors are not defined.');
+    disp('---------------------------------------------');
+    
+end
+
+% -------- end of program script --------
+fprintf('============ Exiting The Program ============\n');
